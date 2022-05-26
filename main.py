@@ -51,7 +51,7 @@ Send me the name of the song you want to download
 
 START_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('📣 Update Channel', url='https://t.me/BotsLanka/6'),
+            InlineKeyboardButton('📣 Update Channel', url='https://t.me/BotsLanka'),
             InlineKeyboardButton('♥️ Help ', url='https://t.me/BotsLanka/6')
         ]]
         
