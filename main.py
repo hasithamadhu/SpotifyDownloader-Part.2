@@ -52,13 +52,13 @@ Send me the name of the song you want to download
 START_BTN = InlineKeyboardMarkup(
         [
         [
-            InlineKeyboardButton('📣 Update Channel', url='https://t.me/+-M8hbzsqhZ9kOGJl') 
+            InlineKeyboardButton('📣 Update Channel', url='https://t.me/BotsLanka/6') 
         ],
         [
-            InlineKeyboardButton('Help ♥️ ', url='https://t.me/+-M8hbzsqhZ9kOGJl')
+            InlineKeyboardButton('Help ♥️ ', url='https://t.me/BotsLanka/6')
         ],
         [
-            InlineKeyboardButton('➕ add me to your group ➕', url='https://t.me/+-M8hbzsqhZ9kOGJl'),
+            InlineKeyboardButton('➕ Add me to your Group ➕', url='http://t.me/TheSpotifyDLBot?startgroup=botstart'),
         ],
         ]
     )
