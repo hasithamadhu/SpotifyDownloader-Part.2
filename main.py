@@ -58,7 +58,7 @@ START_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('Help ♥️ ', url='https://t.me/BotsLanka/6')
         ],
         [
-            InlineKeyboardButton('➕ Add me to your Group ➕', url='http://t.me/TheSpotifyDLBot?startgroup=botstart'),
+            InlineKeyboardButton('➕ Add To Group ➕', url='http://t.me/TheSpotifyDLBot?startgroup=botstart'),
         ],
         ]
     )
