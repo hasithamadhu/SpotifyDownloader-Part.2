@@ -19,14 +19,22 @@ Bot = Client(
 
 START_TXT = """
 Hi {},
-I am Transcript Extractor Bot.
+This is a simple bot to download songs from spotify in an mp3 format. 
 
-Just send a video/audio/voice or a YouTube URL.
+📌 You can download:
+  ▫️A single song
+  ▫️Albums
+  ▫️Playlists
+  ▫️Artists
+
+How to use me - /help
+
+✍️ @BotsLanka
 """
 
 START_BTN = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Source Code', url='https://github.com/samadii/Transcript-Extractor-Bot'),
+        InlineKeyboardButton('📣 Update Channel', url='https://t.me/+-M8hbzsqhZ9kOGJl'),
         ]]
     )
 
