@@ -53,9 +53,7 @@ START_BTN = InlineKeyboardMarkup(
         [
         [
             InlineKeyboardButton('📣 Update Channel', url='https://t.me/BotsLanka/6') 
-        ],
-        [
-            InlineKeyboardButton('Help ♥️ ', url='https://t.me/BotsLanka/6')
+            InlineKeyboardButton('♥️ Help ', url='https://t.me/BotsLanka/6')
         ],
         ]
     )
