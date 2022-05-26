@@ -75,7 +75,7 @@ START_BTN = InlineKeyboardMarkup(
         InlineKeyboardButton('📣 Update Channel', url='https://t.me/+-M8hbzsqhZ9kOGJl'),
         ]]
     )
-HELP_BTN = = InlineKeyboardMarkup(
+HELP_BTN = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('English 🇦🇺', callback_data='enghelp'),
         InlineKeyboardButton('සිංහල 🇱🇰', callback_data='sihelp')
