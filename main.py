@@ -12,9 +12,7 @@ import time
 import wget
 import aiofiles
 import aiohttp
-import youtube_dl
 
-from yt_dlp import YoutubeDL
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import *
 from youtube_search import YoutubeSearch
