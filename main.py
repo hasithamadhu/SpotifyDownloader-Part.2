@@ -20,12 +20,8 @@ from pyrogram.types import *
 from youtube_search import YoutubeSearch
 from random import randint
 from urllib.parse import urlparse
-from CGS import CGS
-from CGS import arq
-from CGS import aiohttpsession as session
 from pyrogram import filters
-from io import BytesIO
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 API_ID = os.environ.get("API_ID")
