@@ -18,7 +18,7 @@ Bot = Client(
 )
 
 START_TXT = """
-*Hi {},
+<b>Hi {},
 This is a simple bot to download songs from spotify in an mp3 format. 
 
 📌 You can download:
@@ -29,28 +29,28 @@ This is a simple bot to download songs from spotify in an mp3 format.
 
 How to use me - /help
 
-✍️ @BotsLanka*
+✍️ @BotsLanka</b>
 """
 
 HELP_TXT = """
-*🤝 Help Menu :
-Select your language ,*
+<b>🤝 Help Menu :
+Select your language ,</b>
 """
 
 ENHELP_TXT = """
-*📌 If there is only one song you want to download, send the name of the song correctly to Bot.
+<b>📌 If there is only one song you want to download, send the name of the song correctly to Bot.
 
 📌 If you want to download an Album / Artists or Playlist from the Spoyify platform, send its link to Bot.
 
-✍️ @BotsLanka*
+✍️ @BotsLanka</b>
 """
 
 SIHELP_TXT = """
-*📌 ඔබට බාගත කරගැනිමට අවශ්‍ය එක සින්දුවක් නම් ,  සින්දුවේ නම නිවැරදිව Bot වෙත එවන්න. 
+<b>📌 ඔබට බාගත කරගැනිමට අවශ්‍ය එක සින්දුවක් නම් ,  සින්දුවේ නම නිවැරදිව Bot වෙත එවන්න. 
 
 📌 ඔබට බාගත කරගැනීමට අවශ්‍ය වන්නේ Spoyify වේදිකාවේ ඇති Album / Artists හෝ Playlist එකක් නම් එහි සබැදිය(Link) Bot වෙත එවන්න.
 
-✍️ @BotsLanka*
+✍️ @BotsLanka</b>
 """
 
 START_BTN = InlineKeyboardMarkup(
