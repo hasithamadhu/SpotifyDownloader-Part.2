@@ -102,128 +102,18 @@ async def start(bot, update):
         reply_markup=reply_markup
     )
     
-@bot.on_message(filters.command(["lyric"]))
-async def lirik(_, message):
-    rep = await message.reply_text("🔎 **searching lyrics...**")
-    try:
-        if len(message.command) < 2:
-            await message.reply_text("**give a lyric name too !**")
-            return
-        query = message.text.split(None, 1)[1]
-        resp = requests.get(f"https://api-tede.herokuapp.com/api/lirik?l={query}").json()
-        result = f"{resp['data']}"
-        await rep.edit(result)
-    except Exception as ex:
-        print(ex)
-        await rep.edit("**Lyrics not found.** please give a valid song name !")
-        
-@CGS.on_message(filters.command(["video"]))
-async def vsong(pbot, message):
-    ydl_opts = {
-        'format':'best',
-        'keepvideo':True,
-        'prefer_ffmpeg':False,
-        'geo_bypass':True,
-        'outtmpl':'%(title)s.%(ext)s',
-        'quite':True
-    }
-    query = " ".join(message.command[1:])
-    try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
-        title = results[0]["title"][:40]
-        thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f"thumb{title}.jpg"
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, "wb").write(thumb.content)
-        duration = results[0]["duration"]
-        views = results[0]["views"]
-        results[0]["url_suffix"]
-        results[0]["views"]
-        rby = message.from_user.mention
-    except Exception as e:
-        print(e)
-    try:
-        msg = await message.reply_text("📥 **downloading video...**")
-        with YoutubeDL(ydl_opts) as ytdl:
-            rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: `YouTube`\n⏱️ **Duration**: `{duration}`\n📤 **By**: @CGSUPDATES '
-            ytdl_data = ytdl.extract_info(link, download=True)
-            file_name = ytdl.prepare_filename(ytdl_data)
-    except Exception as e:
-        return await msg.edit(f"❌**YouTube Download Error !*** {str(e)}\n\n Go support chat👉 @CGSsupport")
-    preview = wget.download(thumbnail)
-    await msg.edit("📤 **uploading video...**")
-    await message.reply_video(
-        file_name,
-        duration=int(ytdl_data["duration"]),
-        thumb=preview,
-        caption=rep,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Updates Channel📢", url=f"https://t.me/CGSUpdates")]]))
-    try:
-        os.remove(file_name)
-        await msg.delete()
-    except Exception as e:
-        print(e)  
 
-def time_to_seconds(time):
-    stringt = str(time)
-    return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
-
-@CGS.on_message(filters.command('song'))
-def song(client, message):
-
-    user_id = message.from_user.id 
-    user_name = message.from_user.first_name 
-    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
-
-    query = ''
-    for i in message.command[1:]:
-        query += ' ' + str(i)
-    print(query)
-    m = message.reply('Searching Song 🔎...')
-    ydl_opts = {"format": "bestaudio[ext=m4a]"}
-    try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
-        #print(results)
-        title = results[0]["title"][:40]       
-        thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f'thumb{title}.jpg'
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, 'wb').write(thumb.content)
-
-        duration = results[0]["duration"]
-        url_suffix = results[0]["url_suffix"]
-        views = results[0]["views"]
-
-    except Exception as e:
-        m.edit(
-            "❌ Found Nothing.\n\nTry another keywork or maybe spell it properly."
-        )
-        print(str(e))
-        return
-    m.edit("**📩 Downloading Song 🎶 Please wait ⏳️ for few second")
-    try:
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            info_dict = ydl.extract_info(link, download=False)
-            audio_file = ydl.prepare_filename(info_dict)
-            ydl.process_info(info_dict)
-        rep =  f'🎧 𝐓𝐢𝐭𝐥𝐞 : [{title[:35]}]({link})\n⏳ 𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧 : `{duration}`\n\n📩 𝐁𝐲 : @CGSUPDATES '
-        secmul, dur, dur_arr = 1, 0, duration.split(':')
-        for i in range(len(dur_arr)-1, -1, -1):
-            dur += (int(dur_arr[i]) * secmul)
-            secmul *= 60
-        s = message.reply_audio(audio_file, caption=rep, thumb=thumb_name, parse_mode='md', title=title, duration=dur)
-        m.delete()
-    except Exception as e:
-        m.edit('❌ Error repot this error to @CGSUPDATES')
-        print(e)
-
-    try:
-        os.remove(audio_file)
-        os.remove(thumb_name)
-    except Exception as e:
-        print(e)       
+await query.answer('How To use me in Sinhala')
+    elif query.data == "sihelp":
+        buttons = [[
+            InlineKeyboardButton('Back 🏃‍♂️', callback_data='start')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.SIHELP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode='html'
+    )
         
 await query.answer('How To use me in English')
     elif query.data == "enghelp":
@@ -233,18 +123,6 @@ await query.answer('How To use me in English')
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.ENHELP_TXT.format(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode='html'
-    )
- 
-await query.answer('How To use me in Sinhala')
-    elif query.data == "sihelp":
-        buttons = [[
-            InlineKeyboardButton('Back 🏃‍♂️', callback_data='start')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.SIHELP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode='html'
     )
